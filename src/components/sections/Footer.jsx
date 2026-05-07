@@ -23,7 +23,7 @@ export default function Footer() {
 
         {/* Right */}
         <div className="font-handwriting text-[18px] text-[var(--slate)] opacity-80">
-          a case study by antigravity
+          a case study by annanya
         </div>
 
       </div>

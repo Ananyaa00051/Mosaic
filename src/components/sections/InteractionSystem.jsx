@@ -2,105 +2,185 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const reactions = [
-  { id: 'felt', label: 'felt this', color: 'var(--blush)' },
-  { id: 'thinking', label: 'thinking about this', color: 'var(--slate)' },
-  { id: 'saved', label: 'saved', color: 'var(--moss)' },
-  { id: 'comforted', label: 'comforted me', color: 'var(--dusk)' },
-  { id: 'pause', label: 'made me pause', color: 'var(--fog)' },
-  { id: 'reply', label: 'want to reply later', color: 'transparent', border: 'var(--ember)' },
+  { id: 'felt',      label: 'felt this',           emoji: '🫧',  color: '#D8B4FE', confirm: 'softly felt' },
+  { id: 'thinking',  label: 'thinking about this',  emoji: '🌀',  color: '#94A3B8', confirm: 'sitting with it' },
+  { id: 'saved',     label: 'saved',                emoji: '🌿',  color: '#8B5CF6', confirm: 'kept quietly' },
+  { id: 'comforted', label: 'comforted me',          emoji: '🕯️',  color: '#BC13FE', confirm: 'a gentle warmth' },
+  { id: 'pause',     label: 'made me pause',         emoji: '🌊',  color: '#6D28D9', confirm: 'a thoughtful pause' },
+  { id: 'reply',     label: 'want to reply later',   emoji: '✉️',  color: '#BC13FE', confirm: 'noted for later', isOutline: true },
 ];
 
-export default function InteractionSystem() {
-  const [activeReaction, setActiveReaction] = useState(null);
+const OLD = ['likes', 'follower counts', 'viral rankings', 'engagement scores', 'story views'];
+const NEW  = ['quiet appreciation', 'soft signals', 'no public counts', 'felt responses', 'private echoes'];
 
-  const handleReactionClick = (id) => {
-    setActiveReaction(id);
-    setTimeout(() => {
-      if (activeReaction === id) setActiveReaction(null);
-    }, 2000);
+export default function InteractionSystem() {
+  const [active, setActive] = useState(null);
+
+  const handleClick = (id) => {
+    setActive(id);
+    setTimeout(() => setActive(prev => prev === id ? null : prev), 2200);
   };
 
   return (
-    <section className="w-full bg-[var(--parchment)] py-32 px-6 flex flex-col items-center">
-      <div className="max-w-[800px] w-full flex flex-col items-center">
-        
-        <motion.h2 
+    <section className="w-full bg-[var(--parchment)] py-32 px-6 flex flex-col items-center overflow-hidden">
+      <div className="max-w-[900px] w-full flex flex-col items-center">
+
+        {/* Eyebrow */}
+        <motion.span
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="font-sans text-[11px] uppercase tracking-[0.18em] text-[var(--moss)] mb-6"
+        >
+          Interaction Design
+        </motion.span>
+
+        <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="text-[40px] md:text-[52px] font-serif text-[var(--ink)] mb-16 text-center"
+          className="text-[40px] md:text-[56px] font-serif text-[var(--ink)] mb-4 text-center leading-tight"
         >
           Reactions, not rankings.
         </motion.h2>
-
-        {/* Reaction Picker UI */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="bg-white/5 backdrop-blur-xl rounded-[32px] p-8 shadow-sm border border-white/10 flex flex-wrap justify-center gap-4 mb-24 relative max-w-[600px]"
+          transition={{ duration: 1, delay: 0.3 }}
+          className="font-sans text-[16px] text-[var(--slate)] text-center mb-20 max-w-[480px]"
         >
-          {reactions.map((rx) => (
-            <motion.button
-              key={rx.id}
-              onClick={() => handleReactionClick(rx.id)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="px-6 py-3 rounded-full font-sans text-sm tracking-wide transition-colors duration-300 relative"
-              style={{
-                backgroundColor: rx.border ? 'transparent' : `${rx.color}30`, // 30 is hex for roughly 20% opacity
-                border: rx.border ? `1px solid ${rx.border}` : '1px solid transparent',
-                color: rx.border ? rx.border : rx.color,
-              }}
-            >
-              {rx.label}
-              
-              {/* Floating Confirmation */}
-              <AnimatePresence>
-                {activeReaction === rx.id && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 10, scale: 0.8 }}
-                    animate={{ opacity: 1, y: -40, scale: 1 }}
-                    exit={{ opacity: 0, y: -50, scale: 0.8 }}
-                    transition={{ duration: 0.4, ease: "easeOut" }}
-                    className="absolute left-1/2 -translate-x-1/2 top-0 whitespace-nowrap text-xs font-handwriting text-[var(--ink)] bg-[#050505] border border-white/10 px-3 py-1 rounded-full shadow-sm pointer-events-none"
+          No likes. No counts. Just honest, human responses — private by default.
+        </motion.p>
+
+        {/* Post Card Mockup */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.2 }}
+          className="w-full max-w-[600px] bg-white/5 backdrop-blur-2xl rounded-[32px] border border-white/10 overflow-hidden shadow-[0_0_60px_rgba(139,92,246,0.08)] mb-6"
+        >
+          {/* Post image */}
+          <div className="relative w-full h-56 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&q=80&w=800"
+              alt="journal entry"
+              className="w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+            <div className="absolute bottom-4 left-5">
+              <span className="font-sans text-[11px] text-[var(--slate)] uppercase tracking-widest">journal entry</span>
+              <p className="font-serif text-[18px] text-[var(--ink)] leading-snug mt-1">
+                "the light at 4pm was doing something today"
+              </p>
+            </div>
+          </div>
+
+          {/* Reaction strip */}
+          <div className="p-6">
+            <p className="font-sans text-[12px] text-[var(--slate)] uppercase tracking-widest mb-4">How did this land for you?</p>
+            <div className="flex flex-wrap gap-3">
+              {reactions.map((rx) => (
+                <div key={rx.id} className="relative">
+                  <motion.button
+                    onClick={() => handleClick(rx.id)}
+                    whileHover={{ scale: 1.06 }}
+                    whileTap={{ scale: 0.94 }}
+                    animate={{
+                      backgroundColor: active === rx.id
+                        ? `${rx.color}35`
+                        : rx.isOutline ? 'transparent' : `${rx.color}18`,
+                      borderColor: active === rx.id
+                        ? rx.color
+                        : rx.isOutline ? `${rx.color}60` : 'transparent',
+                    }}
+                    transition={{ duration: 0.25 }}
+                    className="px-4 py-2.5 rounded-full font-sans text-[13px] border flex items-center gap-2 cursor-none"
+                    style={{ color: rx.color }}
                   >
-                    +1 quiet appreciation
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </motion.button>
-          ))}
+                    <span className="text-[15px]">{rx.emoji}</span>
+                    {rx.label}
+                  </motion.button>
+
+                  {/* Floating confirmation */}
+                  <AnimatePresence>
+                    {active === rx.id && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 6, scale: 0.85 }}
+                        animate={{ opacity: 1, y: -38, scale: 1 }}
+                        exit={{ opacity: 0, y: -46, scale: 0.85 }}
+                        transition={{ duration: 0.4, ease: 'easeOut' }}
+                        className="absolute left-1/2 -translate-x-1/2 top-0 whitespace-nowrap font-sans text-[11px] text-[var(--ink)] bg-[#0F0F12] border border-white/10 px-3 py-1 rounded-full shadow-lg pointer-events-none z-50"
+                      >
+                        ✦ {rx.confirm}
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
-        {/* Comparison */}
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-[var(--fog)]/50 pt-16">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
+        {/* Subtle hint */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1, delay: 0.4 }}
+          className="font-sans text-[12px] text-[var(--slate)]/50 mb-28 text-center"
+        >
+          tap a reaction ↑ to feel it
+        </motion.p>
+
+        {/* Before / After comparison */}
+        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          {/* Before */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="flex flex-col gap-4 text-[24px] md:text-[28px] font-handwriting text-[var(--slate)] line-through decoration-[var(--slate)]/50"
+            className="bg-white/3 border border-white/5 rounded-[24px] p-8"
           >
-            <div>❌ likes</div>
-            <div>❌ followers</div>
-            <div>❌ viral rankings</div>
-            <div>❌ engagement scores</div>
+            <p className="font-sans text-[11px] uppercase tracking-[0.15em] text-red-400/60 mb-6">The old internet</p>
+            <div className="flex flex-col gap-3">
+              {OLD.map((item, i) => (
+                <div key={i} className="flex items-center gap-3 group">
+                  <span className="text-red-400/40 text-[12px]">✕</span>
+                  <span className="font-sans text-[16px] text-[var(--slate)]/40 line-through decoration-[var(--slate)]/20">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
           </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, x: 20 }}
+
+          {/* After */}
+          <motion.div
+            initial={{ opacity: 0, x: 24 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="flex flex-col gap-4 text-[24px] md:text-[28px] font-handwriting text-[var(--moss)]"
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="bg-[var(--moss)]/5 border border-[var(--moss)]/15 rounded-[24px] p-8 shadow-[0_0_40px_rgba(139,92,246,0.06)]"
           >
-            <div>✓ quiet appreciation</div>
-            <div>✓ soft signals</div>
-            <div>✓ no public counts</div>
+            <p className="font-sans text-[11px] uppercase tracking-[0.15em] text-[var(--moss)] mb-6">On MOSAIC</p>
+            <div className="flex flex-col gap-3">
+              {NEW.map((item, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <span className="text-[var(--moss)] text-[12px]">✦</span>
+                  <span className="font-sans text-[16px] text-[var(--ink)]">
+                    {item}
+                  </span>
+                </div>
+              ))}
+            </div>
           </motion.div>
+
         </div>
 
       </div>
