@@ -18,7 +18,7 @@ const mockTiles = [
 
 export default function Discovery() {
   return (
-    <section className="w-full bg-[var(--cream)] flex flex-col relative overflow-hidden">
+    <section id="the-feed" className="w-full bg-[var(--cream)] flex flex-col relative overflow-hidden">
       
       {/* Split Backgrounds */}
       <div className="absolute inset-0 flex pointer-events-none">
