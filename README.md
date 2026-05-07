@@ -1,101 +1,111 @@
-Skip to content
-Ananyaa00051
-Mosaic
-Repository navigation
-Code
-Issues
-Pull requests
-Agents
-Actions
-Projects
-Wiki
-Security and quality
-Insights
-Settings
-Files
-Go to file
-t
-T
-public
-src
-.gitignore
-LICENSE
-README.md
-eslint.config.js
-index.html
-package-lock.json
-package.json
-vite.config.js
-Mosaic
-/
-README.md
-in
-main
+# Mosaic
 
-Edit
+A speculative product case study exploring what a healthier, calmer, and more human internet could look like.
 
-Preview
-Indent mode
+Built as an immersive web experience using React and Vite, Mosaic blends product thinking, interaction design, storytelling, and frontend engineering into a conceptual platform for intentional digital living.
 
-Spaces
-Indent size
+## Live Website
 
-2
-Line wrap mode
+https://mosaic-delta-vert.vercel.app/
 
-No wrap
-Editing README.md file contents
-Selection deleted
-109
-110
-111
-112
-113
-114
-115
-116
-117
-118
-119
-120
-121
-122
-123
-124
-125
-126
-127
-128
-129
-130
-131
-132
-133
-134
-135
-136
-137
-138
-139
-140
-141
-142
-143
-144
-145
-146
-147
-148
-149
-150
-151
-152
-153
-154
-155
-156
-157
-158
+---
+
+## The Idea
+
+Modern internet platforms optimize for:
+- addiction
+- engagement loops
+- endless scrolling
+- outrage
+- hyper-notification culture
+
+Mosaic imagines an alternative.
+
+A digital ecosystem designed around:
+- slower interactions
+- intentional discovery
+- emotional aesthetics
+- meaningful communities
+- mindful engagement
+
+Instead of maximizing screen time, Mosaic explores what happens when platforms optimize for clarity, presence, and human experience.
+
+---
+
+## Product Vision
+
+Mosaic is designed as:
+- a speculative consumer product
+- an internet culture experiment
+- a digital wellness concept
+- a product strategy + UX exploration
+
+The project explores:
+- discovery systems
+- interaction models
+- notification redesign
+- aesthetic systems
+- community structures
+- alternative engagement mechanics
+
+---
+
+## Features
+
+- Immersive storytelling UI
+- Section-based product narrative
+- Interactive scrolling experience
+- Custom cursor interactions
+- Motion-driven transitions
+- Experimental interface concepts
+- Product strategy framing
+- Responsive design
+
+---
+
+## Tech Stack
+
+- React
+- Vite
+- JavaScript
+- CSS3
+- Component-based architecture
+
+---
+
+## Project Structure
+
+```bash
+src/
+ ├── components/
+ │    ├── sections/
+ │    ├── Navbar.jsx
+ │    ├── CustomCursor.jsx
+ │
+ ├── App.jsx
+ ├── main.jsx
+ └── App.css
+```
+
+---
+
+## Key Themes Explored
+
+### Discovery
+Can digital discovery feel intentional instead of algorithmically manipulative?
+
+### Community
+What would online communities look like if engagement wasn't the core KPI?
+
+### Notifications
+Can notification systems become calmer and less anxiety-inducing?
+
+### Interaction Systems
+How can interfaces encourage presence instead of compulsive usage?
+
+### Aesthetic Internet
+What happens when interfaces are designed emotionally instead of commercially?
+
 ---
 
 ## Why I Built This
@@ -146,6 +156,3 @@ https://github.com/Ananyaa00051
 ## License
 
 This project is intended for educational, experimental, and portfolio purposes.
-Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
-No file chosen
-Attach files by dragging & dropping, selecting or pasting them.
