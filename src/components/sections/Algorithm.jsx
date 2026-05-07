@@ -128,19 +128,22 @@ export default function Algorithm() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="w-full bg-[#050505] border border-white/10 rounded-[32px] p-8 md:p-12 relative overflow-hidden shadow-[0_0_50px_rgba(188,19,254,0.1)]"
+          className="w-full bg-[#0A0A0D] border border-[var(--ember)]/20 rounded-[32px] p-8 md:p-12 relative overflow-hidden shadow-[0_0_60px_rgba(188,19,254,0.12)]"
         >
-          {/* Subtle glow */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--ember)] opacity-5 blur-[80px] rounded-full pointer-events-none" />
-          
-          <div className="inline-block px-3 py-1 bg-[var(--ember)]/10 border border-[var(--ember)]/30 rounded-full text-[12px] font-sans text-[var(--ember)] uppercase tracking-wider mb-6">
+          {/* Glow blobs */}
+          <div className="absolute top-0 right-0 w-72 h-72 bg-[var(--ember)] opacity-10 blur-[100px] rounded-full pointer-events-none" />
+          <div className="absolute bottom-0 left-0 w-48 h-48 bg-[var(--moss)] opacity-8 blur-[80px] rounded-full pointer-events-none" />
+          {/* Left accent bar */}
+          <div className="absolute left-0 top-8 bottom-8 w-[3px] bg-gradient-to-b from-[var(--ember)] to-[var(--moss)] rounded-full opacity-60" />
+
+          <div className="inline-block px-3 py-1 bg-[var(--ember)]/15 border border-[var(--ember)]/40 rounded-full text-[12px] font-sans text-[var(--ember)] uppercase tracking-wider mb-6">
             Radical Transparency
           </div>
-          
-          <h3 className="font-serif text-[32px] text-[var(--cream)] mb-4">
+
+          <h3 className="font-serif text-[32px] md:text-[40px] text-[var(--ink)] mb-4 leading-tight">
             "Why am I seeing this?"
           </h3>
-          <p className="font-sans text-[18px] text-[var(--fog)] max-w-[600px] leading-relaxed">
+          <p className="font-sans text-[17px] text-[var(--slate)] max-w-[600px] leading-relaxed">
             "You're seeing more photography because you saved 5 film-camera posts. No black-box manipulation."
           </p>
         </motion.div>

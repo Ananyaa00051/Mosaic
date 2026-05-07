@@ -23,9 +23,9 @@ const contrastStatements = [
 ];
 
 const stats = [
-  { label: 'hours lost daily', number: '2.4h' },
-  { label: 'feel worse after scrolling', number: '64%' },
-  { label: 'want something different', number: '78% of Gen Z' },
+  { label: 'hours lost daily',         number: '2.4h',        accent: 'var(--ember)' },
+  { label: 'feel worse after scrolling', number: '64%',       accent: 'var(--blush)' },
+  { label: 'want something different',  number: '78%',        sub: 'of Gen Z', accent: 'var(--moss)' },
 ];
 
 export default function Problem() {
@@ -103,13 +103,24 @@ export default function Problem() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 1, delay: i * 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="bg-[#0F0F12] p-8 rounded-3xl border border-white/5 flex flex-col justify-between h-[200px] shadow-[0_0_30px_rgba(139,92,246,0.05)]"
+            className="bg-[#0F0F12] p-8 rounded-3xl border border-white/8 flex flex-col justify-between h-[200px] relative overflow-hidden"
+            style={{ boxShadow: `0 0 40px ${stat.accent}15` }}
           >
-            <div className="font-handwriting text-[20px] text-[var(--slate)]">
+            {/* Subtle accent glow top-right */}
+            <div
+              className="absolute top-0 right-0 w-24 h-24 rounded-full blur-2xl opacity-20 pointer-events-none"
+              style={{ background: stat.accent }}
+            />
+            <div className="font-sans text-[13px] font-bold uppercase tracking-widest" style={{ color: stat.accent }}>
               {stat.label}
             </div>
-            <div className="font-serif text-[64px] text-[var(--cream)] leading-none">
-              {stat.number}
+            <div className="flex items-end gap-2">
+              <div className="font-serif text-[64px] text-[var(--ink)] leading-none">
+                {stat.number}
+              </div>
+              {stat.sub && (
+                <div className="font-sans text-[13px] text-[var(--slate)] mb-3">{stat.sub}</div>
+              )}
             </div>
           </motion.div>
         ))}
