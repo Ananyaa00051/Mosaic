@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=DM+Serif+Display:ital@0;1&family=Inter:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-moss: #8B5CF6;
+  --color-dusk: #4C1D95;
+  --color-fog: #1E1B4B;
+  --color-cream: #050505;
+  --color-ink: #F8FAFC;
+  --color-blush: #D8B4FE;
+  --color-slate: #94A3B8;
+  --color-parchment: #0F0F12;
+  --color-ember: #BC13FE;
+  --font-serif: 'Helvetica', sans-serif;
+  --font-sans: 'Helvetica', sans-serif;
+  --font-handwriting: 'Helvetica', sans-serif;
+}
+
+@layer base {
+  :root {
+    --moss: #8B5CF6;
+    --dusk: #4C1D95;
+    --fog: #1E1B4B;
+    --cream: #050505;
+    --ink: #F8FAFC;
+    --blush: #D8B4FE;
+    --slate: #94A3B8;
+    --parchment: #0F0F12;
+    --ember: #BC13FE;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    cursor: none; /* For custom cursor */
+  }
+
+  body {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Typography limits as requested */
+  p, span, div, li, a {
+    font-weight: 700; /* strong */
+    font-family: 'Helvetica', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Helvetica', sans-serif;
+    font-weight: 700; /* strong */
+    letter-spacing: -0.025em; /* tracking-tight */
+  }
+}
+
+@layer utilities {
+  .noise-bg {
+    position: relative;
+  }
+  
+  .noise-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  .vignette {
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.3);
+  }
+
+  .soft-transition {
+    transition: all 0.3s cubic-bezier(0.25,0.46,0.45,0.94);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--cream);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--fog);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dusk);
+}
