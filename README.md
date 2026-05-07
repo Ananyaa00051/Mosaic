@@ -1,16 +1,151 @@
-# React + Vite
+Skip to content
+Ananyaa00051
+Mosaic
+Repository navigation
+Code
+Issues
+Pull requests
+Agents
+Actions
+Projects
+Wiki
+Security and quality
+Insights
+Settings
+Files
+Go to file
+t
+T
+public
+src
+.gitignore
+LICENSE
+README.md
+eslint.config.js
+index.html
+package-lock.json
+package.json
+vite.config.js
+Mosaic
+/
+README.md
+in
+main
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Edit
 
-Currently, two official plugins are available:
+Preview
+Indent mode
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Spaces
+Indent size
 
-## React Compiler
+2
+Line wrap mode
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+No wrap
+Editing README.md file contents
+Selection deleted
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+---
 
-## Expanding the ESLint configuration
+## Why I Built This
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+I wanted to explore the intersection of:
+- product management
+- digital culture
+- frontend storytelling
+- interface systems
+- speculative design
+
+Instead of creating another standard case study deck, I built Mosaic as a living interactive product narrative.
+
+---
+
+## Learnings
+
+Through this project, I explored:
+- frontend architecture
+- interaction-heavy UI systems
+- narrative product design
+- product positioning
+- visual storytelling
+- designing conceptual consumer experiences
+
+---
+
+## Future Scope
+
+- Personalized discovery engine
+- Adaptive interaction systems
+- Community-driven curation
+- AI-assisted mindful feeds
+- Expanded mobile experience
+- Accessibility optimization
+
+---
+
+## Author
+
+Ananya Sharma
+
+GitHub:
+https://github.com/Ananyaa00051
+
+---
+
+## License
+
+This project is intended for educational, experimental, and portfolio purposes.
+Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
+No file chosen
+Attach files by dragging & dropping, selecting or pasting them.
